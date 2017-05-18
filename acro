@@ -1,0 +1,116 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+	echo Syntax for nym or acro:
+	echo nym \[options\] acronym
+	echo Try nym -h for options
+elif [ $# -eq 1 ]; then
+	if [ "$1" == "-h" ]; then
+		echo Current options:
+	#	echo '	-b for brief'
+	#	echo '	-c for category'
+	#	echo '	-d for description'
+		echo '	-h for help'
+		echo '	-l for a list of supported acronyms'
+	elif [ "$1" == "-l" ]; then
+		echo List of Supported Acronyms:
+		echo '	ABP:	AdBlocker Plus'
+		echo '	AC:	Access Control'
+		echo '	AD:	Active Directory'
+		echo '	AES:	Advanced Encryption Standard'
+		echo '	ASCII:	American Standard Code for Information Interchange'
+		echo '	CDT:	Cyber Defense Team'
+		echo '	CIA:	Confidentiality, Integrity, Accessibility'
+		echo '	DAC:	Direct Access Control'
+		echo '	DES:	Data Encryption Standard'
+		echo '	HTML:	Hypertext Markup Language'
+		echo '	MAC:	Mandatory Access Control'
+		echo '	MIT:	Massachusetts Institute of Technology'
+		echo '	NIST:	National Institute of Standards and Technology'
+		echo '	OS:	Operating System'
+		echo '	SDSU:	San Diego State University'
+	else
+		ACRONYM=`echo $1 | tr [:lower:] [:upper:]`
+		TERM=""
+		CATEGORY=""
+		DESC=""
+		if [ "$ACRONYM" == "ABP" ]; then
+			TERM='AdBlocker Plus'
+			CATEGORY='Web'
+			DESC='Free software useful for blocking ads in browsers.'	
+		elif [ "$ACRONYM" == "AC" ]; then
+			TERM='Access Control'
+			CATEGORY='Security'
+			DESC='The restriction of access via authorization, locks, etc. to a resource.'	
+		elif [ "$ACRONYM" == "AD" ]; then
+			TERM='Active Directory'
+			CATEGORY='Networking'
+			DESC='System that authenticates all users in a network, assigns security policies, manages software patches, etc.'	
+		elif [ "$ACRONYM" == "AES" ];then
+			TERM='Advanced Encryption Standard'
+			CATEGORY='Cryptography'
+			DESC='A symmetric-key algorithm developed by NIST in 2001 to replace DES.  It is currently in use.'
+		elif [ "$ACRONYM" == "ASCII" ]; then
+			TERM='American Standard Code for Information Interchange'
+			CATEGORY='Misc'
+			DESC='A means for data to be translated to-and-from human-readable characters.'
+		elif [ "$ACRONYM" == "CDT" ]; then
+			TERM='Cyber Defense Team'
+			CATEGORY='1337'
+			DESC='A fierce organization led by Marcus dedicated to break-building the shit outta everything..'
+		elif [ "$ACRONYM" == "CIA" ]; then
+			TERM='Confidentiality, Integrity, Accessiblity'
+			CATEGORY='Security'
+			DESC='The golden triad of security, used mainly for system administration.
+
+		Confidentiality: That only the people who should access the data can.
+		Integrity:	 That the data can be verified, and remains as intended.
+		Accessibility:	 That the system, files, and managers have backups and are always accessible.
+
+		NOTE: CIA is also the Central Intelligence Agency, but I will dodge that bullet.'
+		elif [ "$ACRONYM" == "DAC" ]; then
+			TERM='Discretionary Access Control'
+			CATEGORY='Security'
+			DESC='Allows users to make security/policy changes.  i.e. chmod and Unix permissions.'
+		elif [ "$ACRONYM" == "DES" ]; then
+			TERM='Data Encryption Standard'
+			CATEGORY='Cryptography'
+			DESC='An obsolete symmetric-key algorithm published as a federal processing standard in 1977.'	
+		elif [ "$ACRONYM" == "HTML" ]; then
+			TERM='Hypertext Markup Language'
+			CATEGORY='Web'
+			DESC='A web code/orientation for organizing and displaying content.'
+		elif [ "$ACRONYM" == "MAC" ]; then
+			TERM='Mandatory Access Control'
+			CATEGORY='Security'
+			DESC='The OS restricts and evaluates whether an action can be taken by a user upon a system'	
+		elif [ "$ACRONYM" == "MIT" ]; then
+			TERM='Massachusetts Institute of Technology'
+			CATEGORY='Organization'
+			DESC='A prestigious university in Cambridge -- renowned for its technological research.'	
+		elif [ "$ACRONYM" == "NIST" ]; then
+			TERM='National Institute of Standards and Technology'
+			CATEGORY='Organization'
+			DESC='A measurement standards lab working indirectly under the Department of Commerce.'
+		elif [ "$ACRONYM" == "OS" ]; then
+			TERM='Operating System'
+			CATEGORY='System'
+			DESC='A complex program capable of managing system memory, processes, bridging hardware and user, etc.'	
+		elif [ "$ACRONYM" == "SDSU" ]; then
+			TERM='San Diego State University'
+			CATEGORY='Organization'
+			DESC='A former CSU party school, now holding its own on the west coast.'
+		else
+			echo Apologies, requested acronym not yet supported...
+			exit 1
+		fi
+	echo "Acronym:	$ACRONYM"
+	echo "Term:		$TERM"
+	echo "Category:	$CATEGORY"
+	echo "Desc:		$DESC"
+	exit 0
+	fi
+else
+	echo TOO MANY ARGS CURRENTLY
+	exit -1
+fi
