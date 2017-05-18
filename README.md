@@ -11,6 +11,9 @@ Installation Instructions:	To install this package, copy and unzip the AcroPak f
 				In a terminal, enter the AcroPak directory, and execute:
 					chmod 700 installer.sh
 					./installer.sh
+				
+				If the installation fails, but the folders and files are there, you may need to install
+				the locate utility.
 
 Operating Instructions:		You may use either acro or nym to run the program once it is installed.
 				Have fun!
