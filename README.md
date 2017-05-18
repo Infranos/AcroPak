@@ -1,5 +1,3 @@
-#AcroPak
-
 Project:			AR (Acronym Resolver)
 
 Designer:			Alexander Kirk
