@@ -10,8 +10,8 @@ Reasoning for Build:		Often, CDT members run into acronyms pertaining to network
 Installation Instructions:	To install this package, copy and unzip the AcroPak folder onto your Unix/Linux/Mac system.
 				In a terminal, enter the AcroPak directory, and execute:
 				
-					chmod 700 installer.sh
-					./installer.sh
+		chmod 700 installer.sh
+		./installer.sh
 					
 If the installation fails, but the folders and files are there, you may need to install
 the locate utility.
