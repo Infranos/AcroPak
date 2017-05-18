@@ -1,10 +1,10 @@
 #!/bin/bash
 
-sudo echo > /dev/null #To make the user aware the install requires sudo
+sudo updatedb #To make the user aware the install requires sudo, plus lets us use locate
 
 CHECKER=/tmp/check.txt
 
-locate AcroPak > $CHECKER
+locate AcroPak | grep AcroPak$ > $CHECKER
 
 if [ ! -s $CHECKER ]; then
 	echo Error, installation folder not found.
@@ -19,6 +19,9 @@ else
 	else
 		chmod +x $FOLDER/acro
 		sudo cp $FOLDER/acro /usr/bin/acro
+		if [ -s /usr/bin/nym ]; then
+                        sudo rm /usr/bin/nym
+                fi
 		sudo ln /usr/bin/acro /usr/bin/nym
 		echo Installation complete!
 	fi
